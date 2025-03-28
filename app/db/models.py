@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, relationship
 
-from .utils import moscow_time
+from ..utils import moscow_time
 
 class Base(DeclarativeBase):
     pass

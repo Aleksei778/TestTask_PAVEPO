@@ -1,9 +1,10 @@
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.future import select
-from database import get_db_conn
-from models import User
+
+from db.database import get_db_conn
+from db.models import User
+from .jwt_auth import verify_token
 
 security = HTTPBearer()
 
@@ -45,6 +46,3 @@ async def get_current_user(
         )
     
     return user
-
-
-
