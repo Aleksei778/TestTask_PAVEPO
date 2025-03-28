@@ -10,3 +10,4 @@ authlib
 yandex-oauth
 passlib[bcrypt]
 python-jose[cryptography]
+pytz
