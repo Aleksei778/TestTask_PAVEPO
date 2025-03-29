@@ -5,8 +5,8 @@ from sqlalchemy import desc
 from typing import Optional
 
 from .models import User, AudioFile
-from schemas.user import UserCreate
-from schemas.audiofile import AudioFileCreate
+from schemas.user import UserCreate, UserUpdate
+from schemas.audiofile import AudioFileCreate, AudioFileUpdate
 
 class DBManager:
     def __init__(self, session: AsyncSession):
@@ -104,5 +104,3 @@ class DBManager:
         await self.session.commit()
 
         return self.get_audiofile_by_id(file_id=file_id)
-
-

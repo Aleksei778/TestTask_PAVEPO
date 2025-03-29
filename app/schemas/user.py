@@ -1,16 +1,20 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
+from typing import Optional
 
-class UserBase(BaseModel):
+class UserCreate(BaseModel):
+    yandex_id: str
     email: EmailStr
     name: str
 
-class UserCreate(UserBase):
-    yandex_id: str
+class UserUpdate(BaseModel):
+    email: Optional[EmailStr] = None
+    name: Optional[str] = None
 
-class UserInDB(UserBase):
-    id: int
+class UserResponse(BaseModel):
     yandex_id: str
+    email: EmailStr
+    name: str
     is_superuser: bool
     created_at: datetime
 
