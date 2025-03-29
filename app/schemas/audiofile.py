@@ -3,7 +3,10 @@ from typing import Optional
 from datetime import datetime
 
 class AudioFileCreate(BaseModel):
-    created_name: str
+    original_filename: str
+    file_path: str
+    changed_filename: Optional[str] = None
+
 
 class AudioFileInDB(BaseModel):
     id: int

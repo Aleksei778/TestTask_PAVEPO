@@ -10,10 +10,10 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    yandex_id = Column(String, unique=True, index=True, nullable=False)
-    email = Column(String, unique=True, nullable=False)
-    name = Column(String, nullable=False)
-    is_superuser = Column(Boolean, nullable=False, default=False)
+    yandex_id = Column(String, unique=True, index=True)
+    email = Column(String, unique=True, index=True)
+    name = Column(String)
+    is_superuser = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=True), default=moscow_time)
     updated_at = Column(DateTime(timezone=True), default=moscow_time)
 
