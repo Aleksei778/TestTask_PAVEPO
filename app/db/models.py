@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import DeclarativeBase, relationship
 
 from ..utils import moscow_time
@@ -13,7 +13,9 @@ class User(Base):
     yandex_id = Column(String, unique=True, index=True, nullable=False)
     email = Column(String, unique=True, nullable=False)
     name = Column(String, nullable=False)
+    is_superuser = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime(timezone=True), default=moscow_time)
+    updated_at = Column(DateTime(timezone=True), default=moscow_time)
 
     audio_files = relationship('AudioFile', back_populates='user')
 
